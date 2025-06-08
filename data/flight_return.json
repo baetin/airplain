@@ -1,0 +1,57 @@
+[
+  {
+    "date": "2025-06-08",
+    "price": 506250,
+    "airline": "Multiple airlines"
+  },
+  {
+    "date": "2025-06-09",
+    "price": 317250,
+    "airline": "China Airlines"
+  },
+  {
+    "date": "2025-06-10",
+    "price": 317250,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-11",
+    "price": 228150,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-12",
+    "price": 202500,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-13",
+    "price": 202500,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-14",
+    "price": 176850,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-15",
+    "price": 202500,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-16",
+    "price": 202500,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-17",
+    "price": 174150,
+    "airline": "Philippine Airlines, Philippines AirAsia"
+  },
+  {
+    "date": "2025-06-18",
+    "price": 125550,
+    "airline": "Jeju Air"
+  }
+]

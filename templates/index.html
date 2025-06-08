@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>왕복 항공권 검색</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #e9f0f4;
+      font-family: 'Apple SD Gothic Neo', sans-serif;
+    }
+    .search-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .btn-search {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+    }
+    h1 {
+      font-weight: bold;
+    }
+    #loading {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 9999;
+    }
+    #loading .spinner {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+<div id="loading">
+  <div class="spinner">🔄 항공권 검색 중입니다...</div>
+</div>
+<div class="container py-5">
+  <div class="row justify-content-center mb-4">
+    <div class="col-lg-8 text-center">
+      <h1 class="text-primary mb-3">✈️ 왕복 항공권 검색</h1>
+      <p class="text-muted">출발지와 도착지, 출국일과 귀국일을 입력하세요</p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="search-card">
+        <form action="/result" method="POST" onsubmit="showLoading()">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="start" class="form-label">출발지</label>
+              <select class="form-select" id="start" name="start" required>
+                <optgroup label="🇰🇷 한국">
+                  <option value="ICN">ICN - 인천</option>
+                  <option value="GMP">GMP - 김포</option>
+                  <option value="PUS">PUS - 부산</option>
+                  <option value="CJU">CJU - 제주</option>
+                </optgroup>
+                <optgroup label="🇯🇵 일본">
+                  <option value="NRT">NRT - 도쿄 나리타</option>
+                  <option value="HND">HND - 도쿄 하네다</option>
+                  <option value="KIX">KIX - 오사카 간사이</option>
+                  <option value="ITM">ITM - 오사카 이타미</option>
+                  <option value="FUK">FUK - 후쿠오카</option>
+                  <option value="CTS">CTS - 삿포로</option>
+                  <option value="OKA">OKA - 오키나와</option>
+                  <option value="KOJ">KOJ - 가고시마</option>
+                  <option value="HIJ">HIJ - 히로시마</option>
+                  <option value="SDJ">SDJ - 센다이</option>
+                  <option value="NGO">NGO - 나고야</option>
+                </optgroup>
+                <optgroup label="🌏 동남아/중화구역">
+                  <option value="HKG">HKG - 홍콩</option>
+                  <option value="TPE">TPE - 타이베이</option>
+                  <option value="SHA">SHA - 상하이</option>
+                  <option value="PVG">PVG - 상하이 푸동</option>
+                  <option value="PEK">PEK - 베이징</option>
+                  <option value="BKK">BKK - 방코커 수왈남푸</option>
+                  <option value="DMK">DMK - 방코커 돈무양</option>
+                  <option value="CNX">CNX - 치양마이</option>
+                  <option value="SGN">SGN - 호치민</option>
+                  <option value="HAN">HAN - 하노이</option>
+                  <option value="KUL">KUL - 쿠알라루푸르</option>
+                  <option value="SIN">SIN - 싱가포르</option>
+                  <option value="MNL">MNL - 마닌라</option>
+                  <option value="CEB">CEB - 세부</option>
+                  <option value="DPS">DPS - 발리</option>
+                  <option value="DEL">DEL - 뉴델리</option>
+                  <option value="CRK">CRK - 클랭</option>
+                  <option value="CGK">CGK - 자카르타</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="end" class="form-label">도착지</label>
+              <select class="form-select" id="end" name="end" required>
+                <optgroup label="🇰🇷 한국">
+                  <option value="ICN">ICN - 인천</option>
+                  <option value="GMP">GMP - 김포</option>
+                  <option value="PUS">PUS - 부산</option>
+                  <option value="CJU">CJU - 제주</option>
+                </optgroup>
+                <optgroup label="🇯🇵 일본">
+                  <option value="NRT">NRT - 도쿄 나리타</option>
+                  <option value="HND">HND - 도쿄 하네다</option>
+                  <option value="KIX">KIX - 오사카 간사이</option>
+                  <option value="ITM">ITM - 오사카 이타미</option>
+                  <option value="FUK">FUK - 후쿠오카</option>
+                  <option value="CTS">CTS - 삿포로</option>
+                  <option value="OKA">OKA - 오키나와</option>
+                  <option value="KOJ">KOJ - 가고시마</option>
+                  <option value="HIJ">HIJ - 히로시마</option>
+                  <option value="SDJ">SDJ - 센다이</option>
+                  <option value="NGO">NGO - 나고야</option>
+                </optgroup>
+                <optgroup label="🌏 동남아/중화구역">
+                  <option value="HKG">HKG - 홍콩</option>
+                  <option value="TPE">TPE - 타이베이</option>
+                  <option value="SHA">SHA - 상하이</option>
+                  <option value="PVG">PVG - 상하이 푸동</option>
+                  <option value="PEK">PEK - 베이징</option>
+                  <option value="BKK">BKK - 방코커 수왈남푸</option>
+                  <option value="DMK">DMK - 방코커 돈무양</option>
+                  <option value="CNX">CNX - 치양마이</option>
+                  <option value="SGN">SGN - 호치민</option>
+                  <option value="HAN">HAN - 하노이</option>
+                  <option value="KUL">KUL - 쿠알라루푸르</option>
+                  <option value="SIN">SIN - 싱가포르</option>
+                  <option value="MNL">MNL - 마닌라</option>
+                  <option value="CEB">CEB - 세부</option>
+                  <option value="DPS">DPS - 발리</option>
+                  <option value="DEL">DEL - 뉴델리</option>
+                  <option value="CRK">CRK - 클랭</option>
+                  <option value="CGK">CGK - 자카르타</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="depart_date" class="form-label">출국일</label>
+              <input type="date" class="form-control" id="depart_date" name="depart_date" required min="{{ today }}">
+            </div>
+            <div class="col-md-6">
+              <label for="return_date" class="form-label">귀국일</label>
+              <input type="date" class="form-control" id="return_date" name="return_date" required min="{{ today }}">
+            </div>
+          </div>
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary btn-search">검색하기</button>
+          </div>
+        </form>
+          <script>
+  function validateDates() {
+    const depart = new Date(document.getElementById('depart_date').value);
+    const ret = new Date(document.getElementById('return_date').value);
+
+    if (depart > ret) {
+      alert("⚠️ 귀국일은 출국일보다 빠를 수 없습니다.");
+      return false;
+    }
+    showLoading();
+    return true;
+  }
+</script>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function showLoading() {
+    document.getElementById('loading').style.display = 'block';
+  }
+</script>
+</body>
+</html>

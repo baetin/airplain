@@ -1,0 +1,77 @@
+[
+  {
+    "date": "2025-08-13",
+    "price": 101,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-14",
+    "price": 153,
+    "airline": "Philippines AirAsia"
+  },
+  {
+    "date": "2025-08-15",
+    "price": 102,
+    "airline": "Cebu Pacific, Philippines AirAsia"
+  },
+  {
+    "date": "2025-08-16",
+    "price": 96,
+    "airline": "Philippines AirAsia"
+  },
+  {
+    "date": "2025-08-17",
+    "price": 79,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-18",
+    "price": 68,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-19",
+    "price": 0,
+    "airline": ""
+  },
+  {
+    "date": "2025-08-20",
+    "price": 79,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-21",
+    "price": 93,
+    "airline": "Philippines AirAsia"
+  },
+  {
+    "date": "2025-08-22",
+    "price": 192,
+    "airline": "Korean Air"
+  },
+  {
+    "date": "2025-08-23",
+    "price": 81,
+    "airline": "Jin Air"
+  },
+  {
+    "date": "2025-08-24",
+    "price": 79,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-25",
+    "price": 90,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-26",
+    "price": 76,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-08-27",
+    "price": 76,
+    "airline": "Cebu Pacific"
+  }
+]

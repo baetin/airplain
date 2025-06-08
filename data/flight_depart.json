@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2025-06-08",
+    "price": 157950,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-09",
+    "price": 114750,
+    "airline": "Philippine Airlines"
+  },
+  {
+    "date": "2025-06-10",
+    "price": 141750,
+    "airline": "Cebu Pacific"
+  },
+  {
+    "date": "2025-06-11",
+    "price": 145800,
+    "airline": "Philippine Airlines"
+  },
+  {
+    "date": "2025-06-12",
+    "price": 171450,
+    "airline": "Jeju Air"
+  },
+  {
+    "date": "2025-06-13",
+    "price": 167400,
+    "airline": "Philippine Airlines"
+  },
+  {
+    "date": "2025-06-14",
+    "price": 0,
+    "airline": ""
+  },
+  {
+    "date": "2025-06-15",
+    "price": 157950,
+    "airline": "Jeju Air"
+  }
+]
