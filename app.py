@@ -1,4 +1,3 @@
-# pip install flask selenium matplotlib requests  터미널에서 실행
 from flask import Flask, render_template, request
 import os, json, time, requests
 from concurrent.futures import ThreadPoolExecutor
